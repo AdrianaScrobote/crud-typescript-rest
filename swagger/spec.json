@@ -1,0 +1,75 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Typescript Rest Archetype",
+        "description": "Documentação da API",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/example/get": {
+            "get": {
+                "summary": "Realiza uma pesquisa de acordo com o search informado.",
+                "tags": ["search"],
+                
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "search",
+                        "required": true,
+                        "type": "string",
+                        "example": "exampleSearch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorno da pesquisa"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/example/client": {
+            "post": {
+                "summary": "Realiza uma pesquisa de acordo com o search informado.",
+                "tags": ["API"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "minLength": 2,
+                                        "maxLength": 50,
+                                        "example": "Adriana"
+                                    },
+                                    "age": {
+                                        "type": "number",
+                                        "example": "27"
+                                    },
+                                    "salary": {
+                                        "type": "number",
+                                        "example": "1000.00"
+                                    }
+                                },
+                                "required": ["name", "age"]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Retorno da pesquisa"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}
